@@ -1,0 +1,5 @@
+<h1> <%= @illness.name %> </h1>
+<% @illness.strains.each do |s| %>
+  <%= link_to(s.strain_id, class_strain_path(@illness, s)) %>
+  <br/>
+<% end %>

@@ -1,0 +1,12 @@
+<h1><%= @strain.probiotic.name %></h1>
+<h2> Strain: <%= @strain.strain_id %> </h2>
+<%= link_to("Get back to all strains of #{@strain.probiotic.name}", probiotic_path(@strain.probiotic)) %>
+<% if @strain.presenter.marketed? %>
+  <a class="f6 link dim br-pill ba ph3 pv2 mb2 dib dark-green" href="#0"> <%= @strain.data['status'] %> </a>
+<% elsif @strain.presenter.researched? %>
+  <a class="f6 link dim br-pill ba ph3 pv2 mb2 dib dark-blue" href="#0"> <%= @strain.data['status'] %> </a>
+<% else %>
+  <a class="f6 link dim br-pill ba ph3 pv2 mb2 dib dark-pink" href="#0"> <%= @strain.data['status'] %> </a>
+<% end %>
+<br/>
+<%= @strain.data %>

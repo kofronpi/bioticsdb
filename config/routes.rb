@@ -1,3 +1,11 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root 'home#welcome'
+
+  concern :has_related_strain do
+    resources :strains, only: :show
+  end
+
+  resources :probiotics, only: [:show, :index], concerns: :has_related_strain
+  resources :illnesses, as: 'classes', only: [:show, :index], concerns: :has_related_strain
+  resources :effects, only: [:show, :index], concerns: :has_related_strain
 end

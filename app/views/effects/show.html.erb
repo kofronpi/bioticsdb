@@ -1,0 +1,5 @@
+<h1> <%= @effect.name %> </h1>
+<% @effect.strains.each do |s| %>
+  <%= link_to(s.strain_id, effect_strain_path(@effect, s)) %>
+  <br/>
+<% end %>
