@@ -1,0 +1,2 @@
+class Probiotic < ApplicationRecord
+end
